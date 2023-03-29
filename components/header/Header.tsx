@@ -16,7 +16,7 @@ interface HeaderInterface {
 const StyledHeader = styled.header<HeaderInterface>`
 	height: 80px;
 	width: 100%;
-	background-color: ${(p) => p.theme.headerBackgroundColor};
+	/* background-color: ${(p) => p.theme.headerBackgroundColor}; */
 	padding: 2rem 4rem 1rem;
 	display: flex;
 	flex-direction: row;
@@ -133,21 +133,23 @@ const Container = styled.div`
 `;
 
 const Header = () => {
-	const { scrollUp, setTheme, theme } = useAppContext();
-	const [active, setActive] = useState(false);
+	const { scrollUp, setTheme, theme, headerActive, setHeaderActive } = useAppContext();
 
-	const click = () => {
-		setActive(false);
+	const click = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+		if (setHeaderActive) {
+			setHeaderActive(false);
+			e.stopPropagation();
+		}
 	};
 
 	useEffect(() => {
-		if (active) {
+		if (headerActive) {
 			document.body.classList.add('no_scroll');
 			return;
 		}
 
 		document.body.classList.remove('no_scroll');
-	}, [active]);
+	}, [headerActive]);
 
 	const toggleTheme = () => {
 		if (!setTheme) return;
@@ -184,29 +186,40 @@ const Header = () => {
 					aria-label='theme toggle'
 				/>
 				<Burger
-					onClick={() => {
-						setActive(!active);
+					onClick={(e) => {
+						e.stopPropagation();
+						if (setHeaderActive) {
+							setHeaderActive(!headerActive);
+						}
 					}}>
-					<Line active={active} />
-					<Line active={active} />
-					<Line active={active} />
-					<Line active={active} />
+					<Line active={headerActive} />
+					<Line active={headerActive} />
+					<Line active={headerActive} />
+					<Line active={headerActive} />
 				</Burger>
 			</Container>
 
-			<StyledNav active={active}>
+			<StyledNav active={headerActive} onClick={(e) => e.stopPropagation()}>
 				<List>
-					<Item active={active} onClick={click}>
-						<a>Home</a>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='/' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Home
+						</a>
 					</Item>
-					<Item active={active} onClick={click}>
-						<a>About Me</a>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#about-me' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							About Me
+						</a>
 					</Item>
-					<Item active={active} onClick={click}>
-						<a>Experience</a>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#experience' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Experience
+						</a>
 					</Item>
-					<Item active={active} onClick={click}>
-						<a>Contact</a>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#contact' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Contact
+						</a>
 					</Item>
 				</List>
 			</StyledNav>

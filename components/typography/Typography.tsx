@@ -4,7 +4,7 @@ import { resolveStyles } from '../../utils/styled-bp';
 
 interface TypographyInterface {
 	children: React.ReactNode | React.ReactNode[] | string;
-	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
 	color?: string;
 	position?: string;
 	gradient?: boolean;
@@ -25,7 +25,6 @@ interface WrapperInterface extends React.ReactHTMLElement<HTMLElement> {
 
 const Wrapper = styled.div<WrapperInterface>`
 	color: var(--color, ${(p) => p.theme.fontColor});
-	/* position: var(--position, relative); */
 
 	/* Text Gradient */
 	background-size: 100%;

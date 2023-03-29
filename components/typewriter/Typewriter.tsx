@@ -14,10 +14,11 @@ const TypewriterWrapper = ({ strings, variant = 'p' }: TypewriterComponentInterf
 			<Typography variant={variant} styles={[{ 'text-align': 'center' }]} gradient>
 				<Typewriter
 					onInit={(tw) => {
-						tw.pasteString('learner.', null);
+						tw.pauseFor(600);
+						tw.typeString('learner.');
 						tw.pauseFor(800);
 						tw.deleteAll();
-						tw.typeString('software developer.');
+						tw.typeString('software Engineer.');
 						tw.pauseFor(800);
 						tw.start();
 					}}

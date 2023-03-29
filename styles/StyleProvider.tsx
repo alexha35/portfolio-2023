@@ -24,6 +24,7 @@ export const StyledThemeProvider = ({ children }: StyledThemeProviderInterface) 
 		backgroundColor: theme === 'light' ? 'var(--white-bg)' : 'var(--black-bg)',
 		burgerBackgroundColor: theme === 'light' ? 'var(--black-bg)' : 'var(--white-bg)',
 		headerBackgroundColor: theme === 'light' ? '#f1efefeb' : '#242424fb',
+		backgroundAltColor: theme === 'light' ? 'var(--white-alt-bg)' : 'var(--black-alt-bg)',
 	};
 
 	return <ThemeProvider theme={themeContext}>{children}</ThemeProvider>;
