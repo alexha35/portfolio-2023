@@ -5,7 +5,7 @@ import Typography from '../typography/Typography';
 
 interface TypewriterComponentInterface {
 	strings?: string[];
-	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+	variant: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
 }
 
 const TypewriterWrapper = ({ strings, variant = 'p' }: TypewriterComponentInterface) => {
