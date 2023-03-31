@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
 import { resolveStyles } from '../../utils/styled-bp';
 
 interface TypographyInterface {
@@ -11,6 +13,7 @@ interface TypographyInterface {
 	styles?: {
 		[s: string]: any;
 	};
+	[s: string]: any;
 }
 
 interface WrapperInterface extends React.ReactHTMLElement<HTMLElement> {
@@ -23,7 +26,7 @@ interface WrapperInterface extends React.ReactHTMLElement<HTMLElement> {
 	[s: string]: any;
 }
 
-const Wrapper = styled.div<WrapperInterface>`
+const Wrapper = styled(motion.div)<WrapperInterface>`
 	color: var(--color, ${(p) => p.theme.fontColor});
 
 	/* Text Gradient */

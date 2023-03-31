@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { GoChevronDown } from 'react-icons/go';
+import { motion } from 'framer-motion';
 
 import Header from '../components/header/Header';
 import { AppProvider, AppConsumer } from '../context/AppContext';
@@ -42,9 +43,9 @@ function App() {
 						mounted && (
 							<Container ref={containerRef} onClick={() => setHeaderActive(false)}>
 								<Header />
-								<Box as='section' style={[{ display: 'grid', 'place-items': 'center', height: '100vh', position: 'relative' }]}>
+								<Box animate={{ scale: 2 }} as='section' style={[{ display: 'grid', 'place-items': 'center', height: '100vh', position: 'relative' }]}>
 									<InnerContainer>
-										<Typography ref={nameRef} variant='h1'>
+										<Typography ref={nameRef} variant='h1' animate={{ x: 102 }}>
 											Alex Ha
 										</Typography>
 										<FlexContainerRow>
@@ -120,7 +121,7 @@ function App() {
 											padding: 'var(--container-padding)',
 										},
 									]}>
-									<Typograhpy variant='h2' styles={[{ 'margin-block-end': '4rem' }]}>
+									<Typograhpy variant='h2' styles={[{ 'margin-block-end': '2rem' }, { 'margin-block-end': '4rem' }]}>
 										Projects
 									</Typograhpy>
 									<CardGrid>

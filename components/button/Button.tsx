@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
 import { resolveStyles } from '../../utils/styled-bp';
 
 interface ButtonPropsInterface {
@@ -17,7 +19,7 @@ interface ButtonInterface extends React.HTMLProps<HTMLButtonElement> {
 	$style: React.CSSProperties;
 }
 
-const StyledButton = styled.button<ButtonInterface>`
+const StyledButton = styled(motion.button)<ButtonInterface>`
 	outline: none;
 	border: none;
 

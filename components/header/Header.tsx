@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Switch from 'react-switch';
-import { MdLightbulb, MdNightlight } from 'react-icons/Md';
+import { MdLightbulb, MdNightlight } from 'react-icons/md';
 
 import { useAppContext } from '../../context/AppContext';
 

@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { resolveStyles } from '../../utils/styled-bp';
 
@@ -17,7 +18,7 @@ interface WrapperInterface {
 	};
 }
 
-const Wrapper = styled.div<WrapperInterface>`
+const Wrapper = styled(motion.div)<WrapperInterface>`
 	${(p) => p.$style && resolveStyles(p.$style)}
 `;
 
