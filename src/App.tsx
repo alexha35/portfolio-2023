@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { GoChevronDown } from 'react-icons/go';
-import { motion } from 'framer-motion';
 
 import Header from '../components/header/Header';
 import { AppProvider, AppConsumer } from '../context/AppContext';
