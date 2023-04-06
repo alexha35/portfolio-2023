@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Switch from 'react-switch';
 import { MdLightbulb, MdNightlight } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 import { useAppContext } from '../../context/AppContext';
+import Box from '../box/Box';
 
 interface NavActiveInterface {
 	active: boolean;
@@ -12,6 +14,154 @@ interface NavActiveInterface {
 interface HeaderInterface {
 	scrollUp: boolean | null;
 }
+
+const Header = () => {
+	const { scrollUp, setTheme, theme, headerActive, setHeaderActive } = useAppContext();
+
+	const click = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+		if (setHeaderActive) {
+			setHeaderActive(false);
+			e.stopPropagation();
+		}
+	};
+
+	useEffect(() => {
+		if (headerActive) {
+			document.body.classList.add('no_scroll');
+			return;
+		}
+
+		document.body.classList.remove('no_scroll');
+	}, [headerActive]);
+
+	const toggleTheme = () => {
+		if (!setTheme) return;
+
+		if (theme === 'light') {
+			setTheme('dark');
+			localStorage.setItem('alex-website-theme', 'dark');
+		} else {
+			setTheme('light');
+			localStorage.setItem('alex-website-theme', 'light');
+		}
+	};
+
+	return (
+		<StyledHeader as={motion.header} scrollUp={scrollUp}>
+			{/* <Box
+				style={[{ display: 'flex', 'justify-content': 'space-between', width: '100%' }]}
+				initial={{
+					y: '-105%',
+					opacity: 0,
+				}}
+				animate={{
+					y: 0,
+					opacity: 1,
+				}}
+				transition={{
+					ease: 'easeInOut',
+					duration: 0.5,
+				}}> */}
+			<img src='../../images/Logo.svg' style={{ height: '60px', width: '60px' }} />
+			<Container>
+				<Switch
+					onChange={toggleTheme}
+					checked={theme === 'light'}
+					checkedIcon={
+						<span style={{ height: '100%', width: '100%', display: 'grid', placeItems: 'center' }}>
+							<MdLightbulb size={20} color={'#f7f7f7'} />
+						</span>
+					}
+					uncheckedIcon={
+						<span style={{ height: '100%', width: '100%', display: 'grid', placeItems: 'center' }}>
+							<MdNightlight size={20} />
+						</span>
+					}
+					offHandleColor='#242424'
+					onColor='#242424'
+					offColor='#f7f7f7'
+					aria-label='theme toggle'
+				/>
+				<Burger
+					onClick={(e) => {
+						e.stopPropagation();
+						if (setHeaderActive) {
+							setHeaderActive(!headerActive);
+						}
+					}}>
+					<Line active={headerActive} />
+					<Line active={headerActive} />
+					<Line active={headerActive} />
+					<Line active={headerActive} />
+				</Burger>
+			</Container>
+
+			<StyledNav active={headerActive} onClick={(e) => e.stopPropagation()}>
+				<List>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='/' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Home
+						</a>
+					</Item>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#about-me' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							About Me
+						</a>
+					</Item>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#experience' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Experience
+						</a>
+					</Item>
+					<Item active={headerActive} onClick={(e) => click(e)}>
+						<a href='#contact' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Contact
+						</a>
+					</Item>
+				</List>
+			</StyledNav>
+			{/* </Box> */}
+		</StyledHeader>
+	);
+};
+
+export default Header;
+
+// Styled components
+
+const Item = styled.li<NavActiveInterface>`
+	padding: 2rem;
+	list-style: none;
+	border-radius: var(--border-radius);
+	transition: 0.25s background-color ease-in, 0.25s transform linear;
+	-webkit-transition: 0.25s background-color ease-in, 0.25s transform linear;
+	transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(100%)')};
+
+	& > a {
+		color: ${(p) => p.theme.fontColor};
+		text-decoration: none;
+		font-size: 1.5em;
+		line-height: 1em;
+		font-weight: 500;
+		padding: 2rem;
+	}
+
+	& > a:hover {
+		font-size: 1.8em;
+		transition: 0.25s font-size ease-in;
+	}
+
+	&:hover {
+		background-color: var(--secondary-darker);
+	}
+`;
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	align-items: center;
+`;
 
 const StyledHeader = styled.header<HeaderInterface>`
 	height: 80px;
@@ -97,134 +247,3 @@ const StyledNav = styled.nav<NavActiveInterface>`
 const List = styled.ul`
 	margin-top: 100px;
 `;
-
-const Item = styled.li<NavActiveInterface>`
-	padding: 2rem;
-	list-style: none;
-	border-radius: var(--border-radius);
-	transition: 0.25s background-color ease-in, 0.25s transform linear;
-	-webkit-transition: 0.25s background-color ease-in, 0.25s transform linear;
-	transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(100%)')};
-
-	& > a {
-		color: ${(p) => p.theme.fontColor};
-		text-decoration: none;
-		font-size: 1.5em;
-		line-height: 1em;
-		font-weight: 500;
-		padding: 2rem;
-	}
-
-	& > a:hover {
-		font-size: 1.8em;
-		transition: 0.25s font-size ease-in;
-	}
-
-	&:hover {
-		background-color: var(--secondary-darker);
-	}
-`;
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: row;
-	gap: 1.5rem;
-	align-items: center;
-`;
-
-const Header = () => {
-	const { scrollUp, setTheme, theme, headerActive, setHeaderActive } = useAppContext();
-
-	const click = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-		if (setHeaderActive) {
-			setHeaderActive(false);
-			e.stopPropagation();
-		}
-	};
-
-	useEffect(() => {
-		if (headerActive) {
-			document.body.classList.add('no_scroll');
-			return;
-		}
-
-		document.body.classList.remove('no_scroll');
-	}, [headerActive]);
-
-	const toggleTheme = () => {
-		if (!setTheme) return;
-
-		if (theme === 'light') {
-			setTheme('dark');
-			localStorage.setItem('alex-website-theme', 'dark');
-		} else {
-			setTheme('light');
-			localStorage.setItem('alex-website-theme', 'light');
-		}
-	};
-
-	return (
-		<StyledHeader scrollUp={scrollUp}>
-			<img src='../../images/Logo.svg' style={{ height: '60px', width: '60px' }} />
-			<Container>
-				<Switch
-					onChange={toggleTheme}
-					checked={theme === 'light'}
-					checkedIcon={
-						<span style={{ height: '100%', width: '100%', display: 'grid', placeItems: 'center' }}>
-							<MdLightbulb size={20} color={'#f7f7f7'} />
-						</span>
-					}
-					uncheckedIcon={
-						<span style={{ height: '100%', width: '100%', display: 'grid', placeItems: 'center' }}>
-							<MdNightlight size={20} />
-						</span>
-					}
-					offHandleColor='#242424'
-					onColor='#242424'
-					offColor='#f7f7f7'
-					aria-label='theme toggle'
-				/>
-				<Burger
-					onClick={(e) => {
-						e.stopPropagation();
-						if (setHeaderActive) {
-							setHeaderActive(!headerActive);
-						}
-					}}>
-					<Line active={headerActive} />
-					<Line active={headerActive} />
-					<Line active={headerActive} />
-					<Line active={headerActive} />
-				</Burger>
-			</Container>
-
-			<StyledNav active={headerActive} onClick={(e) => e.stopPropagation()}>
-				<List>
-					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='/' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
-							Home
-						</a>
-					</Item>
-					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#about-me' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
-							About Me
-						</a>
-					</Item>
-					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#experience' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
-							Experience
-						</a>
-					</Item>
-					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#contact' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
-							Contact
-						</a>
-					</Item>
-				</List>
-			</StyledNav>
-		</StyledHeader>
-	);
-};
-
-export default Header;

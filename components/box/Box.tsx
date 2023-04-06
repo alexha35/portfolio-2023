@@ -16,6 +16,7 @@ interface WrapperInterface {
 	$style?: {
 		[s: string]: any;
 	};
+	[s: string]: any;
 }
 
 const Wrapper = styled(motion.div)<WrapperInterface>`
@@ -23,9 +24,11 @@ const Wrapper = styled(motion.div)<WrapperInterface>`
 `;
 
 const Box = forwardRef(({ children, style = [{}], ...props }: BoxInterface, ref: React.ForwardedRef<HTMLDivElement>) => (
-	<Wrapper ref={ref} $style={style} {...props}>
+	// <motion.div {...props}>
+	<Wrapper as={motion.div} ref={ref} $style={style} {...props}>
 		{children}
 	</Wrapper>
+	// </motion.div>
 ));
 
 export default Box;
