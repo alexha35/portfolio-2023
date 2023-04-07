@@ -15,8 +15,9 @@ export const StyledThemeProvider = ({ children }: StyledThemeProviderInterface) 
 
 		if (savedTheme && setTheme && setMounted) {
 			setTheme(savedTheme as 'light' | 'dark');
-			setMounted(true);
 		}
+
+		setMounted && setMounted(true);
 	}, []);
 
 	const themeContext = {

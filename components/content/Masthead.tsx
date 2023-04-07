@@ -21,7 +21,9 @@ const Masthead = ({ theme }: { theme: 'light' | 'dark' }) => {
 				<Typography variant='p' styles={[{ 'font-size': '12px' }]}>
 					View projects
 				</Typography>
-				<GoChevronDown size={24} color={theme === 'light' ? 'var(--typography-black)' : 'var(--typography-white)'} />
+				<motion.span>
+					<GoChevronDown size={24} color={theme === 'light' ? 'var(--typography-black)' : 'var(--typography-white)'} />
+				</motion.span>
 			</Box>
 		</Box>
 	);

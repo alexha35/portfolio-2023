@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
 import Header from '../components/header/Header';
-import { AppProvider, AppConsumer } from '../context/AppContext';
+import { AppProvider, AppConsumer, AppContextValueInterface } from '../context/AppContext';
 import { StyledThemeProvider } from '../styles/StyleProvider';
 import { Masthead, AboutMe, Projects, Contact } from '../components/content';
 
@@ -34,8 +34,9 @@ function App() {
 			<AppProvider scrollUp={goingUp}>
 				<StyledThemeProvider>
 					<AppConsumer>
-						{({ mounted, theme, setHeaderActive }: { mounted: boolean; theme: 'light' | 'dark'; setHeaderActive: React.Dispatch<React.SetStateAction<boolean>> }) =>
-							mounted && (
+						{({ mounted, theme, setHeaderActive }: AppContextValueInterface) =>
+							mounted &&
+							setHeaderActive && (
 								<Container ref={containerRef} onClick={() => setHeaderActive(false)}>
 									<Header />
 									<Masthead theme={theme} />

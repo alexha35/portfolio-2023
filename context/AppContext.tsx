@@ -5,7 +5,7 @@ interface AppProviderInterface {
 	scrollUp: null | boolean;
 }
 
-interface AppContextValueInterface {
+export interface AppContextValueInterface {
 	scrollUp: null | boolean;
 	headerActive: boolean;
 	setHeaderActive: React.Dispatch<React.SetStateAction<boolean>> | null;
