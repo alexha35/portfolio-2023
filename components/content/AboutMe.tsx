@@ -93,8 +93,8 @@ const AboutMe = () => {
 				</Box>
 				<Box styles={[{ 'grid-area': '1/1', position: 'relative' }, { 'grid-area': '1/2' }]} variants={fadeLeft}>
 					<picture>
-						<source type='image/jpg' srcSet='/images/MeAndMyDawgs.jpg' />
-						<img src='/images/MeAndMyDawgs.webp' style={{ objectFit: 'contain', width: '100%', borderRadius: 'var(--border-radius)' }} />
+						<source type='image/webp' srcSet='/images/MeAndMyDawgs.webp' />
+						<img src='/images/MeAndMyDawgs.jpg' alt='Alex and his dogs.' style={{ objectFit: 'contain', width: '100%', borderRadius: 'var(--border-radius)' }} />
 					</picture>
 				</Box>
 			</Box>

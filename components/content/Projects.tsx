@@ -26,8 +26,8 @@ const Projects = () => {
 				<CardContainer href='https://www.asianduckmn.com/'>
 					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
 						<picture>
-							<source type='image/png' srcSet='/projects/asian-duck.png' />
-							<StyledImage src='/projects/asian-duck.webp' alt={'Screenshot of Asian Duck homepage'} />
+							<source type='image/webp' srcSet='/projects/asian-duck.webp' />
+							<StyledImage src='/projects/asian-duck.png' alt={'Screenshot of Asian Duck homepage'} />
 						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
@@ -37,8 +37,8 @@ const Projects = () => {
 				<CardContainer href='https://www.chevrolet.com/electric'>
 					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
 						<picture>
-							<source type='image/png' srcSet='/projects/chevrolet-ev.png' />
-							<StyledImage src='/projects/chevrolet-ev.webp' alt={'Screenshot of Chevrolet EV homepage'} />
+							<source type='image/webp' srcSet='/projects/chevrolet-ev.webp' />
+							<StyledImage src='/projects/chevrolet-ev.png' alt={'Screenshot of Chevrolet EV homepage'} />
 						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
@@ -48,8 +48,8 @@ const Projects = () => {
 				<CardContainer href='https://www.evlive.gm.com/'>
 					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
 						<picture>
-							<source type='image/png' srcSet='/projects/evlive.png' />
-							<StyledImage src='/projects/evlive.webp' alt={'Screenshot of EV-Live homepage'} />
+							<source type='image/webp' srcSet='/projects/evlive.webp' />
+							<StyledImage src='/projects/evlive.png' alt={'Screenshot of EV-Live homepage'} />
 						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
@@ -59,8 +59,8 @@ const Projects = () => {
 				<CardContainer href='https://github.com/alexha35/my-store'>
 					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
 						<picture>
-							<source type='image/png' srcSet='/projects/my-store.png' />
-							<StyledImage src='/projects/my-store.webp' alt={'Screenshot of My-Store homepage'} />
+							<source type='image/webp' srcSet='/projects/my-store.webp' />
+							<StyledImage src='/projects/my-store.png' alt={'Screenshot of My-Store homepage'} />
 						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
@@ -70,8 +70,8 @@ const Projects = () => {
 				<CardContainer href='https://github.com/alexha35/quiz-app'>
 					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
 						<picture>
-							<source type='image/png' srcSet='/projects/quiz-app.png' />
-							<StyledImage src='/projects/quiz-app.webp' alt={'Screenshot of Quiz-App homepage'} />
+							<source type='image/webp' srcSet='/projects/quiz-app.webp' />
+							<StyledImage src='/projects/quiz-app.png' alt={'Screenshot of Quiz-App homepage'} />
 						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
