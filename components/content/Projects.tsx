@@ -7,8 +7,9 @@ import Typography from '../typography/Typography';
 const Projects = () => {
 	return (
 		<Box
+			id='PROJECTS'
 			as='section'
-			style={[
+			styles={[
 				{
 					'min-height': '100vh',
 					position: 'relative',
@@ -22,41 +23,56 @@ const Projects = () => {
 				Projects
 			</Typography>
 			<CardGrid>
-				<CardContainer>
-					<Box style={[{ position: 'relative', overflow: 'hidden' }]}>
-						<StyledImage src='/projects/asian-duck.png' />
+				<CardContainer href='https://www.asianduckmn.com/'>
+					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
+						<picture>
+							<source type='image/png' srcSet='/projects/asian-duck.png' />
+							<StyledImage src='/projects/asian-duck.webp' alt={'Screenshot of Asian Duck homepage'} />
+						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
 						Asian Duck
 					</Typography>
 				</CardContainer>
-				<CardContainer>
-					<Box style={[{ position: 'relative', overflow: 'hidden' }]}>
-						<StyledImage src='/projects/chevrolet-ev.png' />
+				<CardContainer href='https://www.chevrolet.com/electric'>
+					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
+						<picture>
+							<source type='image/png' srcSet='/projects/chevrolet-ev.png' />
+							<StyledImage src='/projects/chevrolet-ev.webp' alt={'Screenshot of Chevrolet EV homepage'} />
+						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
 						Chevrolet EV
 					</Typography>
 				</CardContainer>
-				<CardContainer>
-					<Box style={[{ position: 'relative', overflow: 'hidden' }]}>
-						<StyledImage src='/projects/evlive.png' />
+				<CardContainer href='https://www.evlive.gm.com/'>
+					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
+						<picture>
+							<source type='image/png' srcSet='/projects/evlive.png' />
+							<StyledImage src='/projects/evlive.webp' alt={'Screenshot of EV-Live homepage'} />
+						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
 						EV Live
 					</Typography>
 				</CardContainer>
-				<CardContainer>
-					<Box style={[{ position: 'relative', overflow: 'hidden' }]}>
-						<StyledImage src='/projects/my-store.png' />
+				<CardContainer href='https://github.com/alexha35/my-store'>
+					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
+						<picture>
+							<source type='image/png' srcSet='/projects/my-store.png' />
+							<StyledImage src='/projects/my-store.webp' alt={'Screenshot of My-Store homepage'} />
+						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
 						MY STORE
 					</Typography>
 				</CardContainer>
-				<CardContainer>
-					<Box style={[{ position: 'relative', overflow: 'hidden' }]}>
-						<StyledImage src='/projects/quiz-app.png' />
+				<CardContainer href='https://github.com/alexha35/quiz-app'>
+					<Box styles={[{ position: 'relative', overflow: 'hidden' }]}>
+						<picture>
+							<source type='image/png' srcSet='/projects/quiz-app.png' />
+							<StyledImage src='/projects/quiz-app.webp' alt={'Screenshot of Quiz-App homepage'} />
+						</picture>
 					</Box>
 					<Typography variant='h4' styles={[{ 'white-space': 'nowrap', overflow: 'hidden', 'text-overflow': 'ellipsis', padding: '1rem' }]}>
 						Quiz App
@@ -75,7 +91,7 @@ const CardGrid = styled.div`
 	gap: 1rem;
 `;
 
-const CardContainer = styled.div`
+const CardContainer = styled.a`
 	width: 100%;
 	height: auto;
 	background-color: ${(p) => p.theme.backgroundAltColor};

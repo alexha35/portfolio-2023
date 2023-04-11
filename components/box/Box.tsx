@@ -6,29 +6,27 @@ import { resolveStyles } from '../../utils/styled-bp';
 
 interface BoxInterface {
 	children: React.ReactNode | React.ReactNode[] | null;
-	style?: {
+	styles?: {
 		[s: string]: any;
 	};
 	[s: string]: any;
 }
 
 interface WrapperInterface {
-	$style?: {
+	styles?: {
 		[s: string]: any;
 	};
 	[s: string]: any;
 }
 
 const Wrapper = styled(motion.div)<WrapperInterface>`
-	${(p) => p.$style && resolveStyles(p.$style)}
+	${(p) => p.styles && resolveStyles(p.styles)}
 `;
 
-const Box = forwardRef(({ children, style = [{}], ...props }: BoxInterface, ref: React.ForwardedRef<HTMLDivElement>) => (
-	// <motion.div {...props}>
-	<Wrapper as={motion.div} ref={ref} $style={style} {...props}>
+const Box = forwardRef(({ children, styles = [{}], ...props }: BoxInterface, ref: React.ForwardedRef<HTMLDivElement>) => (
+	<Wrapper as={motion.div} ref={ref} styles={styles} {...props}>
 		{children}
 	</Wrapper>
-	// </motion.div>
 ));
 
 export default Box;

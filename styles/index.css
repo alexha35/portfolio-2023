@@ -46,6 +46,11 @@
 	--container-padding: calc(2rem + 80px) 2rem;
 }
 
+body {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
 a {
 	color: inherit;
 	cursor: pointer;

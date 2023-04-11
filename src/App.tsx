@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import Header from '../components/header/Header';
 import { AppProvider, AppConsumer, AppContextValueInterface } from '../context/AppContext';
 import { StyledThemeProvider } from '../styles/StyleProvider';
-import { Masthead, AboutMe, Projects, Contact } from '../components/content';
+import { Masthead, AboutMe, Projects, Contact, Footer } from '../components/content';
 
 function App() {
 	const prevScrollY = useRef(0);
@@ -43,6 +43,7 @@ function App() {
 									<AboutMe />
 									<Projects />
 									<Contact />
+									<Footer />
 								</Container>
 							)
 						}

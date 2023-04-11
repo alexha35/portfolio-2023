@@ -8,8 +8,9 @@ import Button from '../button/Button';
 const Contact = () => {
 	return (
 		<Box
+			id='CONTACT'
 			as='section'
-			style={[
+			styles={[
 				{
 					display: 'flex',
 					'flex-direction': 'column',

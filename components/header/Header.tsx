@@ -62,7 +62,7 @@ const Header = () => {
 					ease: 'easeInOut',
 					duration: 0.5,
 				}}> */}
-			<img src='../../images/Logo.svg' style={{ height: '60px', width: '60px' }} />
+			<img src='../../images/Logo.svg' alt='Logo' style={{ height: '60px', width: '60px' }} />
 			<Container>
 				<Switch
 					onChange={toggleTheme}
@@ -88,7 +88,8 @@ const Header = () => {
 						if (setHeaderActive) {
 							setHeaderActive(!headerActive);
 						}
-					}}>
+					}}
+					aria-label='Menu Button'>
 					<Line active={headerActive} />
 					<Line active={headerActive} />
 					<Line active={headerActive} />
@@ -99,22 +100,22 @@ const Header = () => {
 			<StyledNav active={headerActive} onClick={(e) => e.stopPropagation()}>
 				<List>
 					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='/' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+						<a href='#' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
 							Home
 						</a>
 					</Item>
 					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#about-me' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+						<a href='#ABOUT-ME' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
 							About Me
 						</a>
 					</Item>
 					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#experience' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
-							Experience
+						<a href='#PROJECTS' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+							Projects
 						</a>
 					</Item>
 					<Item active={headerActive} onClick={(e) => click(e)}>
-						<a href='#contact' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
+						<a href='#CONTACT' style={{ height: '100%', width: '100%', cursor: 'pointer' }}>
 							Contact
 						</a>
 					</Item>
